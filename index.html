@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard — Simple Shop</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Admin Dashboard — Simple Shop</h1>
+        <div class="sub">Tambah / hapus produk</div>
+      </div>
+      <div class="sub">Products: <span id="totalCount">0</span></div>
+    </header><aside class="panel form">
+  <h3 style="margin-top:0">Tambah Produk</h3>
+  <div style="margin-bottom:8px" class="muted">Isi data lalu tekan <strong>Add</strong></div>
+
+  <div>
+    <label for="title">Nama Produk</label>
+    <input id="title" type="text" placeholder="Contoh: Kopi Tubruk" />
+  </div>
+
+  <div style="margin-top:10px">
+    <label for="description">Deskripsi</label>
+    <textarea id="description" placeholder="Deskripsi singkat"></textarea>
+  </div>
+
+  <div class="row" style="margin-top:10px">
+    <div style="flex:1">
+      <label for="price">Harga (Rp)</label>
+      <input id="price" type="number" min="0" placeholder="5000" />
+    </div>
+    <div style="width:110px">
+      <label for="stock">Stok</label>
+      <input id="stock" type="number" min="0" value="1" />
+    </div>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-top:12px">
+    <button id="addBtn" class="btn btn--primary">Add</button>
+    <button id="clearBtn" class="btn btn--ghost">Clear</button>
+  </div>
+
+  <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+ <!--  <div class="muted">Tips: data disimpan di browser (localStorage). Untuk reset, klik tombol reset pada kanan atas daftar.</div> -->
+</aside>
+
+<main>
+  <div class="panel">
+    <div class="toolbar">
+      <div style="display:flex;gap:8px;align-items:center;width:100%">
+        <input id="q" class="search" type="text" placeholder="Cari judul..." />
+        <select id="sort">
+          <option value="new">Newest</option>
+          <option value="price_asc">Harga naik</option>
+          <option value="price_desc">Harga turun</option>
+        </select>
+        <button id="resetStore" class="btn btn--ghost">Reset</button>
+      </div>
+    </div>
+
+    <div id="list" class="grid">
+      <!-- produk akan render di sini -->
+    </div>
+
+    <div id="empty" class="empty" style="display:none">Belum ada produk. Tambah produk di sebelah kiri.</div>
+  </div>
+</main>
+
+<footer class="muted">Simple admin dashboard — local demo</footer>
+</body>
+</html>
